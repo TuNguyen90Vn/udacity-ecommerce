@@ -60,6 +60,7 @@ public class OrderController {
                 log.error("Order not found!");
                 return ResponseEntity.notFound().build();
             }
+            log.info("Order history found for user: {}", user);
             return ResponseEntity.ok(orderRepository.findByUser(user));
         } catch (RuntimeException e) {
             log.error("There is an error when trying to find an order by username: {}", username);
